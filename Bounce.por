@@ -24,22 +24,42 @@ programa
 	//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 	funcao processaLogica()
 	{
-		//movimentação da bola//
+		//movimentação da bola horizonal//
 		se (indo_pra_direita){
 			bola_x = bola_x + 8
 		}
 		senao{
 			bola_x = bola_x - 5
 		}
+
+		//movimentação da bola vertical//
+		se (indo_pra_baixo){
+			bola_y = bola_y + 8
+		}
+		senao{
+			bola_y = bola_y - 5
+		}
+
 		// Fim
 		// parede //
-		se (bola_x){
+		se (bola_x >= 600){
 			indo_pra_direita = falso
 		}
 
-		se (indo_pra_direita){
+		se (bola_x <= 0){
 			indo_pra_direita = verdadeiro
 		}
+
+		// teto,baixo //
+		se (bola_y >= 300){
+			indo_pra_baixo = falso
+		}
+
+		se (bola_y <= 0){
+			indo_pra_baixo = verdadeiro
+		}
+
+		
 		
 	}
 
@@ -78,7 +98,7 @@ programa
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 861; 
+ * @POSICAO-CURSOR = 1205; 
  * @PONTOS-DE-PARADA = ;
  * @SIMBOLOS-INSPECIONADOS = ;
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
